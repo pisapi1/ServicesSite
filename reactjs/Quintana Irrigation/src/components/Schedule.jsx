@@ -6,12 +6,16 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from "dayjs";
 import { useState } from "react";
+import { IMaskInput } from 'react-imask';
 
 
 const Schedule = () => {
     const today = dayjs();
     // State to manage the selected date
     const [date, setDate] = useState(dayjs()); // default value of current date via dayjs
+
+    // State for phone number
+    const [phoneNumber, setPhoneNumber] = useState('');
     // Handler for date change
     const handleDateChange = (newValue) => {
         setDate(newValue);
@@ -44,9 +48,20 @@ const Schedule = () => {
                         />
                         <br />
                         <br />
+                        <label>Contact Information</label>
+                        <br />
+                        <IMaskInput
+                            mask="(000) 000-0000"
+                            value={phoneNumber}
+                            onAccept={(value) => setPhoneNumber(value)}
+                            placeholder="(123) 456-7890"
+
+                        /> 
+                        <br />
+                        <label>Email Address</label>
+                        <br />
                         <input label="Email" type="email" placeholder="Enter email"/>
                         <br />
-                        <input label="Number" type="tel" placeholder="Enter number"/>
                         <br />
                         <input type="submit" value="Submit"/>
                     </form>
