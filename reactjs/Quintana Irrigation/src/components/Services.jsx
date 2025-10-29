@@ -4,7 +4,7 @@ import profileImage from '../assets/profile.jpg';
 
 const Services = () => {
     return (
-        <div>
+        <div id="content">
             <h1 id="title">Our Services</h1>
             <div className='service' id="right">
                 <div className='image'>
